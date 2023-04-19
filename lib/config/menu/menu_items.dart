@@ -22,7 +22,6 @@ const appMenuItems = <MenuItem>[
     link: '/buttons',
     icon: Icons.smart_button_outlined,
   ),
-
   MenuItem(
     title: 'Tarjetas',
     subTitle: 'Un contenedor estilizado',
@@ -36,9 +35,9 @@ const appMenuItems = <MenuItem>[
     icon: Icons.credit_card,
   ),
   MenuItem(
-    title: 'Tarjetas',
-    subTitle: 'Un contenedor estilizado',
-    link: '/cards',
-    icon: Icons.credit_card,
+    title: 'Snackbar y dialogos',
+    subTitle: 'Indicadores en pantalla',
+    link: '/snackbar',
+    icon: Icons.info_outline,
   ),
 ];
