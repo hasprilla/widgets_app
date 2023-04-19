@@ -55,7 +55,7 @@ class _CustomListTitle extends StatelessWidget {
         color: colors.primary,
       ),
       onTap: () {
-        context.go(menu.link);
+        context.push(menu.link);
         // Navigator.pushNamed(context, menu.link);
       },
     );
