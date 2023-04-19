@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../config/menu/menu_items.dart';
 
@@ -52,7 +53,8 @@ class _CustomListTitle extends StatelessWidget {
         color: colors.primary,
       ),
       onTap: () {
-        Navigator.pushNamed(context, menu.link);
+        context.push(menu.link);
+        // Navigator.pushNamed(context, menu.link);
       },
     );
   }
