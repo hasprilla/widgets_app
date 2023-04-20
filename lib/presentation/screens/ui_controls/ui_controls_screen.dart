@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class UiControlsScreen extends StatelessWidget {
-  static const String name = 'ui_controls_screen';
+  static const name = 'ui_controls_screen';
 
   const UiControlsScreen({super.key});
 
@@ -9,7 +9,7 @@ class UiControlsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Ui Controls'),
+        title: const Text('UI Controls'),
       ),
       body: const _UiControlsView(),
     );
@@ -25,36 +25,34 @@ class _UiControlsView extends StatefulWidget {
 
 enum Transportation { car, plane, boat, submarine }
 
-bool wantBrakfast = false;
-bool wantsLunch = false;
-bool wantsDinner = false;
-
 class _UiControlsViewState extends State<_UiControlsView> {
-  bool isMode = false;
+
+  bool isDeveloper = true;
   Transportation selectedTransportation = Transportation.car;
+  bool wantsBreakfast = false;
+  bool wantsLunch = false;
+  bool wantsDinner = false;
 
   @override
   Widget build(BuildContext context) {
     return ListView(
+      physics: const ClampingScrollPhysics(),
       children: [
         SwitchListTile(
-          value: isMode,
+          title: const Text('Developer Mode'),
+          subtitle: const Text('Controles adicionales'),
+          value: isDeveloper,
           onChanged: (value) => setState(() {
-            isMode = !isMode;
+            isDeveloper = !isDeveloper;
           }),
-          title: const Text('Developers mode'),
-          subtitle: const Text('Controller adicionales'),
         ),
+
         ExpansionTile(
-          title: const Text(
-            'Vehiculo de transporte',
-          ),
-          subtitle: Text(
-            '$selectedTransportation',
-          ),
+          title: const Text('Vehículo de transporte'),
+          subtitle: Text('$selectedTransportation'),
           children: [
             RadioListTile(
-              title: const Text('By card'),
+              title: const Text('By Car'),
               subtitle: const Text('Viajar por carro'),
               value: Transportation.car,
               groupValue: selectedTransportation,
@@ -63,7 +61,7 @@ class _UiControlsViewState extends State<_UiControlsView> {
               }),
             ),
             RadioListTile(
-              title: const Text('By boat'),
+              title: const Text('By Boat'),
               subtitle: const Text('Viajar por barco'),
               value: Transportation.boat,
               groupValue: selectedTransportation,
@@ -72,8 +70,8 @@ class _UiControlsViewState extends State<_UiControlsView> {
               }),
             ),
             RadioListTile(
-              title: const Text('By plane'),
-              subtitle: const Text('Viajar por avion'),
+              title: const Text('By Plane'),
+              subtitle: const Text('Viajar por avión'),
               value: Transportation.plane,
               groupValue: selectedTransportation,
               onChanged: (value) => setState(() {
@@ -81,7 +79,7 @@ class _UiControlsViewState extends State<_UiControlsView> {
               }),
             ),
             RadioListTile(
-              title: const Text('By submarine'),
+              title: const Text('By Submarine'),
               subtitle: const Text('Viajar por submarino'),
               value: Transportation.submarine,
               groupValue: selectedTransportation,
@@ -91,11 +89,12 @@ class _UiControlsViewState extends State<_UiControlsView> {
             ),
           ],
         ),
+      
         CheckboxListTile(
-          title: const Text('Desayuno?'),
-          value: wantBrakfast,
+          title: const Text('¿Desayuno?'),
+          value: wantsBreakfast,
           onChanged: (value) => setState(() {
-            wantBrakfast = !wantBrakfast;
+            wantsBreakfast = !wantsBreakfast;
           }),
         ),
         CheckboxListTile(
@@ -112,6 +111,7 @@ class _UiControlsViewState extends State<_UiControlsView> {
             wantsDinner = !wantsDinner;
           }),
         ),
+
       ],
     );
   }

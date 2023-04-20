@@ -12,25 +12,24 @@ const colorList = <Color>[
   Colors.pinkAccent,
 ];
 
+
+
 class AppTheme {
-  final int seletedColor;
+
+  final int selectedColor;
 
   AppTheme({
-    this.seletedColor = 0,
-  })  : assert(
-          seletedColor >= 0,
-          'Selected color must be greate then 0',
-        ),
-        assert(
-          seletedColor < colorList.length,
-          'Selected color must be less or equal than ${colorList.length - 1}',
-        );
+    this.selectedColor = 0
+  }): assert( selectedColor >= 0, 'Selected color must be greater then 0' ),  
+      assert( selectedColor < colorList.length, 
+        'Selected color must be less or equal than ${ colorList.length - 1 }');
 
   ThemeData getTheme() => ThemeData(
-        useMaterial3: true,
-        colorSchemeSeed: colorList[seletedColor],
-        appBarTheme: const AppBarTheme(
-          centerTitle: false,
-        ),
-      );
+    useMaterial3: true,
+    colorSchemeSeed: colorList[ selectedColor ],
+    appBarTheme: const AppBarTheme(
+      centerTitle: false
+    ),
+  );
+
 }
